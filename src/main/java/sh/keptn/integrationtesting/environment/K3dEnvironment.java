@@ -12,6 +12,11 @@ public class K3dEnvironment extends KeptnEnvironment {
         super(installer);
     }
 
+
+    public static K3dEnvironment create() {
+        return new K3dEnvironment(new K3dLocalInstaller(new FileDownloader()));
+    }
+
     @Override
     public void init() {
         logger.info("Initializing k3d environment");

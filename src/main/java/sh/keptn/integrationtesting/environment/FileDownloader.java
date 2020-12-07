@@ -1,5 +1,8 @@
 package sh.keptn.integrationtesting.environment;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,8 +16,10 @@ import java.nio.file.Paths;
 
 public class FileDownloader {
 
+    private Logger logger = LoggerFactory.getLogger(FileDownloader.class);
 
     public Path downloadToFile(String url, String fileName) throws IOException {
+        logger.info(String.format("Downloading file %s from %s", fileName, url));
         URL downloadFileUrl = new URL(url);
         Path tmpDir = Files.createTempDirectory("env");
         Path absFileName = Paths.get(tmpDir.toString(), fileName);
