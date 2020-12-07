@@ -10,13 +10,14 @@ import sh.keptn.integrationtesting.environment.KeptnEnvironment;
 public abstract class KeptnTest {
 
 
-    KeptnEnvironment environment;
+    private KeptnEnvironment environment;
 
 
     @BeforeAll
     public void setup() {
         this.environment = getEnvironment();
         environment.init();
+
 
     }
 
@@ -28,4 +29,5 @@ public abstract class KeptnTest {
 
 
     abstract KeptnEnvironment getEnvironment();
+
 }
