@@ -1,5 +1,8 @@
 package sh.keptn.integrationtesting.environment;
 
+/**
+ * @author warber
+ **/
 public class EnvironmentException extends RuntimeException {
     public EnvironmentException() {
         super();

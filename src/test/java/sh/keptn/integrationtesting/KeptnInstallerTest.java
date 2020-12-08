@@ -11,7 +11,9 @@ import java.io.File;
 import java.net.URL;
 import java.nio.file.Path;
 
-
+/**
+ * @author warber
+ **/
 @ExtendWith(MockitoExtension.class)
 class KeptnInstallerTest {
 
@@ -21,20 +23,20 @@ class KeptnInstallerTest {
 
     //TODO enhance test
     @Test
-    public void test() throws Exception{
+    public void test() throws Exception {
 
-        URL url = this.getClass().getClassLoader().getResource("bin/echoargs.zip");
+        URL url = getClass().getClassLoader().getResource("bin/echoargs.zip");
         Path p = new File(url.toURI()).toPath();
         Mockito.when(fileDownloader.downloadToFile(Mockito.anyString(), Mockito.anyString())).thenReturn(p);
         KeptnInstaller.KeptnInstallerBuilder builder = new KeptnInstaller.KeptnInstallerBuilder(fileDownloader);
         KeptnInstaller installer = builder//
-        .hideSensitiveData(true) //
-        .verbose(true)//
-        .withChartRepo("a-chart-repo")//
-        .withCredentials("cred.json")//
-        .withEndpointServiceType("a-endpoint-service-type")//
-        .withUseCase("a-usecase")//
-        .build();
+                .hideSensitiveData(true) //
+                .verbose(true)//
+                .withChartRepo("a-chart-repo")//
+                .withCredentials("cred.json")//
+                .withEndpointServiceType("a-endpoint-service-type")//
+                .withUseCase("a-usecase")//
+                .build();
         installer.install();
     }
 

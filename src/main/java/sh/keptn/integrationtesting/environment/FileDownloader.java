@@ -14,6 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * @author warber
+ **/
 public class FileDownloader {
 
     private Logger logger = LoggerFactory.getLogger(FileDownloader.class);

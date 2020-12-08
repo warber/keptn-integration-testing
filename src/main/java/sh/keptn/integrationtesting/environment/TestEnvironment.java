@@ -3,6 +3,9 @@ package sh.keptn.integrationtesting.environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author warber
+ **/
 public class TestEnvironment extends KeptnEnvironment {
 
 
@@ -28,9 +31,4 @@ public class TestEnvironment extends KeptnEnvironment {
         installer.uninstall();
     }
 
-
-    @Override
-    public KubeClusterConfig getKubeClusterConfig() {
-        return null;
-    }
 }

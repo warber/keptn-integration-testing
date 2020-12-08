@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * @author warber
+ **/
 public class K3dLocalInstaller implements Installer {
 
     private Logger logger = LoggerFactory.getLogger(K3dLocalInstaller.class);

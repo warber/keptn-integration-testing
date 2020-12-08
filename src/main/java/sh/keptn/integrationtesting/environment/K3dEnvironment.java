@@ -3,6 +3,9 @@ package sh.keptn.integrationtesting.environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author warber
+ **/
 public class K3dEnvironment extends KeptnEnvironment {
 
 
@@ -38,8 +41,4 @@ public class K3dEnvironment extends KeptnEnvironment {
         }
     }
 
-    @Override
-    public KubeClusterConfig getKubeClusterConfig() {
-        return null;
-    }
 }

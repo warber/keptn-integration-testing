@@ -1,5 +1,8 @@
 package sh.keptn.integrationtesting.environment;
 
+/**
+ * @author warber
+ **/
 public abstract class KeptnEnvironment {
 
     protected final Installer installer;
@@ -11,6 +14,4 @@ public abstract class KeptnEnvironment {
     public abstract void init();
 
     public abstract void tearDown();
-
-    public abstract KubeClusterConfig getKubeClusterConfig();
 }

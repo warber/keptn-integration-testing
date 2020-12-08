@@ -1,5 +1,8 @@
 package sh.keptn.integrationtesting.environment;
 
+/**
+ * @author warber
+ **/
 public class DownloadFailedException extends Exception {
     public DownloadFailedException() {
         super();

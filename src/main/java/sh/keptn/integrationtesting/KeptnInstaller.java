@@ -17,14 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-
+/**
+ * @author warber
+ **/
 public class KeptnInstaller {
 
     private final Logger logger = LoggerFactory.getLogger(KeptnInstaller.class);
 
-    private static final String KEPTN_INSTALL_REPO = "https://storage.googleapis.com/keptn-installer/latest/keptn-0.1.0.tgz";
+    public static final String KEPTN_INSTALL_REPO = "https://storage.googleapis.com/keptn-installer/latest/keptn-0.1.0.tgz";
 
-    private static final String KEPTN_CLI_DOWNLOAD_URL = "https://storage.googleapis.com/keptn-cli/latest/keptn-linux.zip";
+    public static final String KEPTN_CLI_DOWNLOAD_URL = "https://storage.googleapis.com/keptn-cli/latest/keptn-linux.zip";
+
     private final FileDownloader fileDownloader;
 
     private final String chartRepo;
@@ -105,7 +108,9 @@ public class KeptnInstaller {
         return cmd;
     }
 
-
+    /**
+     * @author warber
+     **/
     public static class KeptnInstallerBuilder {
 
         private final FileDownloader fileDownloader;
@@ -122,6 +127,19 @@ public class KeptnInstaller {
 
         private boolean verbose;
 
+
+        public static KeptnInstallerBuilder create() {
+            return new KeptnInstallerBuilder(new FileDownloader());
+        }
+
+        public static KeptnInstallerBuilder createContinuousDelivery() {
+            return KeptnInstaller.KeptnInstallerBuilder.create()//
+                    .hideSensitiveData(true)//
+                    .verbose(true)//
+                    .withChartRepo(KeptnInstaller.KEPTN_INSTALL_REPO)//
+                    .withUseCase("continuous-delivery")//
+                    .withEndpointServiceType("LoadBalancer");
+        }
 
         KeptnInstallerBuilder(FileDownloader fileDownloader) {
             this.fileDownloader = fileDownloader;

@@ -2,6 +2,9 @@ package sh.keptn.integrationtesting.environment;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author warber
+ **/
 public class TestInstallerTest {
 
     @Test
